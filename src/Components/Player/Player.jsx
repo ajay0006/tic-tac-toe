@@ -11,6 +11,8 @@ export default function Player({name, symbol}) {
         // setIsEditing(!isEditing)
     }
 
+
+
     function onPlayerNameChange(e) {
         setPlayerName(e.target.value)
     }
