@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function Player({name, symbol}) {
+export default function Player({name, symbol, isPlayerActive}) {
     const [isEditing, setIsEditing] = useState(false)
     const [playerName, setPlayerName] = useState(name)
     let playerNameElement = <span className='player-name'>{playerName}</span>
@@ -11,8 +11,6 @@ export default function Player({name, symbol}) {
         // setIsEditing(!isEditing)
     }
 
-
-
     function onPlayerNameChange(e) {
         setPlayerName(e.target.value)
     }
@@ -22,7 +20,9 @@ export default function Player({name, symbol}) {
     }
 
     return (
-        <li>
+        // if the isPlayer is true, it means it was an X and O was a false, X was false, and O is true, then
+        // isPlayer would be active for the O component but false aka not active for the X component
+        <li className={isPlayerActive? 'active': undefined }>
             <span className="player">
                 {playerNameElement}
                 <span className="player-symbol">{symbol}</span>
